@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<head>
+    <title> NmLunarEclipse.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(home: ResponsiveExample()));
+
+class ResponsiveExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
+    if (width < 600) {
+      return Scaffold(body: Center(child: Text("📱 Mobile Screen", style: TextStyle(fontSize: 18))));
+    } else if (width < 1200) {
+      return Scaffold(body: Center(child: Text("📲 Tablet Screen", style: TextStyle(fontSize: 24))));
+    } else {
+      return Scaffold(body: Center(child: Text("🖥️ Desktop Screen", style: TextStyle(fontSize: 32))));
+    }
+  }
+}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .box {
+      background: lightblue;
+      margin: 10px;
+      padding: 20px;
+      flex: 1 1 300px; /* mobile වලදී vertical, desktop වලදී row */
+      max-width: 400px;
+      border-radius: 10px;
+    }
+
+    /* Tablet view */
+    @media (min-width: 768px) {
+      .box {
+        background: lightcoral;
+      }
+    }
+
+    /* Desktop view */
+    @media (min-width: 1024px) {
+      .box {
+        background: lightgreen;
+      }
+    }
+  body {
+  font-size: 16px;
+  padding: 10px;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+    padding: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  body {
+    font-size: 20px;
+    padding: 40px;
+  }
+}
+.container {
+  width: 90%;   
+  max-width: 1200px;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.item {
+  flex: 1 1 300px; 
+}
+
+import React from "react";
+import { View, Text, Dimensions, StyleSheet } from "react-native";
+
+const { width } = Dimensions.get("window");
+
+export default function App() {
+  let textStyle;
+
+  if (width < 600) {
+    textStyle = styles.mobile;
+  } else if (width < 1200) {
+    textStyle = styles.tablet;
+  } else {
+    textStyle = styles.desktop;
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={textStyle}>Responsive Screen</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  mobile: { fontSize: 16, color: "red" },
+  tablet: { fontSize: 22, color: "green" },
+  desktop: { fontSize: 28, color: "blue" },
+});
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    background: lightcoral;
+  }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    background: lightgreen;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  body {
+    background: lightblue;
+  }
+}
+import 'package:flutter/material.dart';
+
+class ResponsiveExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+
+    if (screenWidth < 600) {
+      // 📱 Mobile layout
+      return Scaffold(
+        body: Center(child: Text("Mobile Screen", style: TextStyle(fontSize: 18))),
+      );
+    } else if (screenWidth < 1200) {
+      // 📲 Tablet layout
+      return Scaffold(
+        body: Center(child: Text("Tablet Screen", style: TextStyle(fontSize: 24))),
+      );
+    } else {
+      // 🖥️ Desktop layout
+      return Scaffold(
+        body: Center(child: Text("Desktop Screen", style: TextStyle(fontSize: 32))),
+      );
+    }
+  }
+}
+  import React from "react";
+import { View, Text, Dimensions, StyleSheet } from "react-native";
+
+const { width } = Dimensions.get("window");
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={width < 600 ? styles.small : styles.large}>
+        Responsive Screen Example
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  small: {
+    fontSize: 16,
+    color: "red",
+  },
+  large: {
+    fontSize: 28,
+    color: "blue",
+  },
+});
+  body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      background: lightblue;
+      padding: 20px;
+      margin: 10px;
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 600px) {
+      .box {
+        background: lightcoral;
+        font-size: 14px;
+      }
+    }
+
+    /* Tablets */
+    @media (min-width: 601px) and (max-width: 1024px) {
+      .box {
+        background: lightgreen;
+        font-size: 18px;
+      }
+    }
+
+    /* Large screens (desktop) */
+    @media (min-width: 1025px) {
+      .box {
+        background: lightblue;
+        font-size: 22px;
+      }
+    }
+  
+body {
+  font-size: 20px;
+  background-color: lightblue;
+}
+
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+    background-color: lightgreen;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+    background-color: lightcoral;
+  }
+}
+.container {
+  width: 100%;      
+  max-width: 1200px; 
+  margin: auto;
+  padding: 10px;
+}
+  body {
+  font-size: 20px;
+  background-color: lightblue;
+}
+body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #040505, #0072ff);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0,0,0,0.4);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 15px;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    section {
+      padding: 100px 50px;
+      text-align: center;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url('https://picsum.photos/1600/900?blur=3') center/cover no-repeat;
+    }
+    .hero h2 {
+      font-size: 60px;
+      margin: 0;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 22px;
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 12px 25px;
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #fff;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .card {
+      background: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(0,0,0,0.7);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.7);
+    }
+  /* Default styles (desktop large screens) */
+body {
+  font-size: 18px;
+  background-color: white;
+}
+
+/* Tablet screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    background-color: lightblue;
+  }
+}
+
+/* Mobile screens (up to 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    background-color: lightgreen;
+  }
+}
+  body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #080a0a, #050708);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0,0,0,0.4);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 15px;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    section {
+      padding: 100px 50px;
+      text-align: center;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url('https://picsum.photos/1600/900?blur=3') center/cover no-repeat;
+    }
+    .hero h2 {
+      font-size: 60px;
+      margin: 0;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 22px;
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 12px 25px;
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #f30303;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .card {
+      background: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(0,0,0,0.7);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.7);
+    }
+  /* Default styles (desktop large screens) */
+body {
+  font-size: 18px;
+  background-color: rgb(236, 12, 12);
+}
+
+/* Tablet screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    background-color: lightblue;
+  }
+}
+
+/* Mobile screens (up to 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    background-color: lightgreen;
+  }
+}
+  body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #020303, #0072ff);
+      color: #040608;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(123, 251, 255, 0.4);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 2px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #030301;
+      margin: 0 15px;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #ffd700;
+    }
+    section {
+      padding: 100px 50px;
+      text-align: center;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: url('https://picsum.photos/1600/900?blur=3') center/cover no-repeat;
+    }
+    .hero h2 {
+      font-size: 60px;
+      margin: 0;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 22px;
+      margin: 20px 0;
+    }
+    .btn {
+      padding: 12px 25px;
+      background: #ffd700;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #00060e;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .card {
+      background: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      background: rgba(0,0,0,0.7);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0,0,0,0.7);
+    }
+  /* Default styles (desktop large screens) */
+body {
+  font-size: 18px;
+  background-color: rgb(0, 3, 15);
+}
+
+/* Tablet screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  body {
+    font-size: 16px;
+    background-color: rgb(0, 4, 5);
+  }
+}
+
+/* Mobile screens (up to 767px) */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+    background-color: lightgreen;
+  }
+}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0267ff;
+  }
+
+  /* Input bar */
+  #input-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    background: rgba(50,50,50,0.9);
+    color: #fdfdfd;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1000;
+  }
+
+  #input-bar label {
+    font-weight: bold;
+    color: #f2f3f5;
+    font-size: 14px;
+  }
+
+  #input-bar input, #input-bar select {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+  }
+
+  #ok-btn {
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: #aeaee7;
+    color: #fa05d9;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+  /* Display frame */
+  #display-frame {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 320px;
+    background: rgba(30,30,30,0.95);
+    color: #fc5f04;
+    padding: 18px 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    font-size: 18px;
+    display: none;
+    z-index: 999;
+    cursor: pointer; /* Click to toggle back to input */
+  }
+
+  #display-frame span {
+    color: #1eff44;
+    font-weight: bold;
+  }
+  #timer {
+  font-size: 36px;
+  font-weight: bold;
+  color: #fffb00c0;
+  margin-top: 20px;
+}
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #ff4500;
+  color: #016efd;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #07f5ad;
+    color: #0379ff;
+  }
+  #timer {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2d3602;
+    margin-top: 30px;
+  }
+  button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #ff4500;
+    color: #0784f8;
+
+</style>
+</head>
+<body>
+ <header>
+    <h1> The beginning of the lunar eclipse</h1>
+    <nav>
+    </nav>
+  </header>
+  <br><br><br><br><br>
+    <div id="input-bar">
+  <label>Day:</label>
+  <input type="text" id="day-input" placeholder="Sunday">
+  <label>Date:</label>
+  <input type="text" id="date-input" placeholder="01">
+  <label>Month:</label>
+  <input type="text" id="month-input" placeholder="Jan">
+  <label>Year:</label>
+  <input type="text" id="year-input" placeholder="2025">
+  <label>Time:</label>
+  <input type="text" id="time-input" placeholder="12:00:00">
+  <label>AM/PM:</label>
+  <select id="ampm-select">
+    <option value="AM">AM</option>
+    <option value="PM">PM</option>
+  </select>
+  <label>Country:</label>
+  <select id="country-select">
+    <option value="Sri Lanka">Sri Lanka</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="India">India</option>
+    <option value="Australia">Australia</option>
+  </select>
+  <h7>චන්ද්‍රග්‍රහණයට වෙලාව සෙවීමට</h7>
+  <button id="ok-btn">OK</button>
+</div><button onclick="startTimer()"> <button id="ok-btn"><< මෙය ඔබන්න</button>
+
+<div id="timer"></div>
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<font color=black fice><P>2025 සැප්තැම්බර් 7-8 දිනවල, පෘථිවි ජනගහනයෙන් 85% ක් පමණ වන බිලියන 7 කට ආසන්න ජනතාවකට, විශ්මයජනක පූර්ණ චන්ද්‍රග්‍රහණයක් නැරඹීමට අවස්ථාව ලැබෙනු ඇත. මිනිත්තු 82 ක් සඳහා, චන්ද්‍රයා පෘථිවියේ සෙවනැල්ල හරහා සම්පූර්ණයෙන්ම ගමන් කරනු ඇති අතර, එය "රුධිර සඳ" ලෙස හඳුන්වන දිලිසෙන රතු පැහැති කක්ෂයක් බවට පරිවර්තනය වනු ඇත. මෙම දර්ශනීය ආකාශ සිදුවීම අතරතුර, පෘථිවි වායුගෝලය හරහා පෙරෙන හිරු එළිය සඳ මත රතු පැහැයක් ඇති කරන අතර, රාත්‍රී අහසේ වඩාත් සිත් ඇදගන්නාසුළු දසුනක් නිර්මාණය කරයි. මුළු චන්ද්‍රග්‍රහණය ලොව පුරා බොහෝ ප්‍රදේශවල දෘශ්‍යමාන වන අතර, අනියම් නිරීක්ෂකයින්ට සහ තාරකා විද්‍යා ලෝලීන්ට අමතක නොවන අත්දැකීමක් ලබා දෙයි. දුරේක්ෂ නොමැතිව වුවද, ග්‍රහණය පියවි ඇසට දෘශ්‍යමාන වන අතර, දුරදක්න හෝ කැමරාවලට සඳෙහි වෙනස් වන වර්ණ සහ සෙවනැලි ප්‍රගතිය පිළිබඳ වැඩි දියුණු කළ දර්ශන ලබා දිය හැකිය. ඡායාරූප ශිල්පීන් සහ තරු නිරීක්ෂකයින් යන දෙදෙනාම මෙම දුර්ලභ සිදුවීම ග්‍රහණය කර ගැනීමට සූදානම් වෙමින් සිටින අතර, එය පෘථිවිය, චන්ද්‍රයා සහ සූර්යයා අතර සංකීර්ණ නර්තනය මතක් කිරීමක් ලෙස සේවය කරයි. මෙම චන්ද්‍රග්‍රහණය දෘශ්‍යමය වශයෙන් විශ්මයජනක පමණක් නොව, අපගේ සෞරග්‍රහ මණ්ඩලයේ අරුමපුදුම දේ නැවැත්වීමට, ඉහළට බැලීමට සහ මෙනෙහි කිරීමට කදිම මොහොතකි. මෙවැනි සිදුවීම් මහාද්වීප පුරා සිටින මිනිසුන් සම්බන්ධ කරයි, මන්ද පෘථිවියේ සිටින සෑම කෙනෙකුටම පාහේ එකම විශ්වීය සංසිද්ධිය ආ සන්න වශයෙන් එකම වේලාවක දැකීමට අවස්ථාව තිබේ. ඔබේ දින දර්ශන සලකුණු කර නගර ආලෝකයෙන් ඈත්ව අඳුරු ස්ථානයක් සොයා ගෙන ග්‍රහණය සම්පූර්ණයෙන්ම භුක්ති විඳින්න. මිනිත්තු 82 ක් සඳහා, චන්ද්‍රයාගේ නාටකාකාර පරිවර්තනය විශ්වයේ සුන්දරත්වය සහ පරිමාණය අපට මතක් කර දෙන අතර, ජීවිත කාලය පුරාම පවතින මතකයන් නිර්මාණය කරයි.......
+</P>
+<br><br><br>
+<UL type="disc">
+  <li>වේලාව රාත්‍රී 8.58 සිට අලුයම 2.25 වන තෙක්.</li>
+  <li>ආරම්භය-9/7 20:58 .</li>
+  <li>පෙනුම්බ්‍රා සෙවණැල්ල සම්පූර්ණයෙන් සඳ මත වැටීම- 9/7 21:57 .</li>
+  <li>පූර්ණ ග්‍රහනයේ ආරම්භය-9/7 23:00 .</li>
+  <li>උපරිම වර්ණය- 9/7 23:41 </li>
+  <li>පූර්ණ ග්‍රහනයේ අවසානය- 9/8 00:22.......</li>
+
+  </UL>
+  </font>
+  <img src="c:\Users\damay\Downloads\tumblr_db16a635dbefb0c010a54ca2525e924e_5fb7ac08_400.webp"width=400>
+<h1>ඔබ මෙයට කැමතිනම් තව තොරතුරු දැන ගැනීමට සබ්ස්ක්‍රයිබ් කරන්න..</h1>
+  <a href="https://www.youtube.com/channel/UCRomtBZqwrGwncfLkY1Vfog"class=btn>subscribe</a>
+  <script>
+const dayInput = document.getElementById('day-input');
+const dateInput = document.getElementById('date-input');
+const monthInput = document.getElementById('month-input');
+const yearInput = document.getElementById('year-input');
+const timeInput = document.getElementById('time-input');
+const ampmSelect = document.getElementById('ampm-select');
+const countrySelect = document.getElementById('country-select');
+const displayFrame = document.getElementById('display-frame');
+const inputBar = document.getElementById('input-bar');
+
+const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+// Update inputs with default time/date
+function updateDefaultDateTime() {
+    const now = new Date();
+
+    if(dayInput.value === "") dayInput.value = days[now.getDay()];
+    if(dateInput.value === "") dateInput.value = now.getDate().toString().padStart(2,'0');
+    if(monthInput.value === "") monthInput.value = months[now.getMonth()];
+    if(yearInput.value === "") yearInput.value = now.getFullYear();
+
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2,'0');
+    const seconds = now.getSeconds().toString().padStart(2,'0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    timeInput.value = `${hours.toString().padStart(2,'0')}:${minutes}:${seconds}`;
+    ampmSelect.value = ampm;
+}
+
+// Live update
+setInterval(() => {
+    updateDefaultDateTime();
+    if(displayFrame.style.display === 'block') {
+        displayFrame.innerHTML = `<span>${dayInput.value}</span>. <span>${dateInput.value}.${monthInput.value}.${yearInput.value}</span>. <span>${timeInput.value} ${ampmSelect.value}</span>. <span>${countrySelect.value}</span>`;
+    }
+}, 1000);
+updateDefaultDateTime();
+
+// OK button click → show display frame
+document.getElementById('ok-btn').addEventListener('click', () => {
+    inputBar.style.display = 'none';
+    displayFrame.style.display = 'block';
+});
+
+// Click on display frame → go back to input bar
+displayFrame.addEventListener('click', () => {
+    displayFrame.style.display = 'none';
+    inputBar.style.display = 'flex';
+});
+function startTimer() {
+  // Target date: 2025/9/7 20:58
+  const targetDate = new Date(2025, 8, 7, 20, 58, 0); // Month 0-11 → 8 = Sep
+
+  function updateTimer() {
+    const now = new Date();
+    let diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("timer").textContent = "🌕 චන්ද්‍රග්‍රහණයේ ආරම්භය 🌕";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById("timer").textContent = 
+      `දවස්: ${days} | පැය: ${hours} | මිනිත්තු: ${minutes} | තත්පර: ${seconds}`;
+
+    setTimeout(updateTimer, 1000);
+  }
+
+  updateTimer();
+}
+  </script>
+    </body>
+</html>
